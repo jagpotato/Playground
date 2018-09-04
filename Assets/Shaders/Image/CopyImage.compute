@@ -2,18 +2,19 @@
 
 RWStructuredBuffer<float4> positionBuffer;
 
-float _Dim;
-float _CubeScale;
-float3 _Pivot;
+float _Dim;         // 1辺のピクセル数
+float _PixelScale;  // ピクセル1個のスケール
+float3 _Pivot;      // 並べる基準点
 
-[numthreads(1, 1, 1)]
+[numthreads(8, 1, 1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-	float2 uv = float2((id.x % (int)_Dim) / _Dim, floor(id.x / _Dim) / _Dim);
-	float x = _Pivot.x + uv.x * _CubeScale * _Dim;
-	float y = _Pivot.y + uv.y * _CubeScale * _Dim;
-	float z = _Pivot.z;
-	float4 pos = float4(x, y, z, _CubeScale);
+  // ピクセル位置の計算
+  float2 uv = float2((id.x % (int)_Dim) / _Dim, floor(id.x / _Dim) / _Dim);
+  float x = _Pivot.x + uv.x * _PixelScale * _Dim;
+  float y = _Pivot.y + uv.y * _PixelScale * _Dim;
+  float z = _Pivot.z;
+  float4 pos = float4(x, y, z, _PixelScale);
 
-	positionBuffer[id.x] = pos;
+  positionBuffer[id.x] = pos;
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraOperation : MonoBehaviour {
-	[SerializeField]
+	[SerializeField, Range(0, 1)]
 	private float speed;
 	private float angle = 1f;
 	// Use this for initialization
