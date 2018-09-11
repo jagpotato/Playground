@@ -151,9 +151,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4b5e9de9d37dffc4abbfec8269010242, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d2924c9849919404fa605e6afe6e958b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.406
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 1580351253}
   - component: {fileID: 1580351257}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: AudioCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
